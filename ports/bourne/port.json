@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "bourne",
+  "name": "The Bourne Conspiracy",
+  "tagline": "Xbox 360  ·  In development",
+  "version": "0.1.0",
+  "status": "soon",
+  "order": 30,
+  "requires_app": "1.0.0",
+  "accent": "#3B82F6",
+  "icon": "icon.jpg",
+  "disk_gb": 22,
+  "about": "A native Nintendo Switch port of The Bourne Conspiracy, the third-person action game based on the Jason Bourne films.",
+  "input": {
+    "label": "The Bourne Conspiracy game files",
+    "hint": "Your game package file, or the folder it was extracted to.",
+    "title_ids": [
+      "565507D4"
+    ]
+  },
+  "nsp": {
+    "title": "The Bourne Conspiracy",
+    "title_id": "0177110EA0E00000",
+    "publisher": "github.com/zhtipu",
+    "version": "0.1.0"
+  },
+  "notes": [
+    "It will appear here as soon as it is ready."
+  ],
+  "steps": [],
+  "icon_url": "https://raw.githubusercontent.com/zhtipu/nx-porting-kit-catalog/main/ports/bourne/icon.jpg"
+}

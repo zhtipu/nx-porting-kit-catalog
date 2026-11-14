@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "id": "shank1",
+  "name": "Shank",
+  "tagline": "Xbox Live Arcade  ·  Native Switch port",
+  "version": "1.0.1",
+  "status": "stable",
+  "order": 10,
+  "requires_app": "1.0.0",
+  "accent": "#E5484D",
+  "icon": "icon.jpg",
+  "disk_gb": 6,
+  "about": "A native Nintendo Switch port of Shank, the hand-drawn 2D action brawler. It installs as a standalone NSP built from your own copy of the game.",
+  "input": {
+    "label": "Shank game files",
+    "hint": "Your game package file, or the folder it was extracted to.",
+    "title_ids": [
+      "58410A62"
+    ]
+  },
+  "nsp": {
+    "title": "Shank",
+    "title_id": "0177110EA0DF0000",
+    "publisher": "github.com/zhtipu",
+    "version": "1.0.1"
+  },
+  "notes": [
+    "Needs about 6 GB of free space while it works.",
+    "Copy the finished switch folder to your SD card."
+  ],
+  "outputs_help": "An NSP to install on your Switch, and a switch folder to copy to your SD card.",
+  "steps": [
+    {
+      "type": "fetch",
+      "title": "Download port files",
+      "source": "archive",
+      "repo": "zhtipu/shank1-nx-installer",
+      "ref": "main",
+      "dest": "installer"
+    },
+    {
+      "type": "fetch",
+      "title": "Download port files",
+      "source": "release",
+      "repo": "zhtipu/shank1-nx",
+      "asset": "shank1.nro",
+      "dest": "installer/release/shank1.nro"
+    },
+    {
+      "type": "fetch",
+      "title": "Download port files",
+      "source": "release",
+      "repo": "zhtipu/shank1-nx",
+      "asset": "nsp-loader.zip",
+      "dest": "loader",
+      "unzip": true
+    },
+    {
+      "type": "tool",
+      "title": "Prepare your game",
+      "name": "node",
+      "cwd": "installer",
+      "args": [
+        "test/package_node.mjs",
+        "{work}/package.zip",
+        "{game}"
+      ],
+      "expect": [
+        "package.zip"
+      ]
+    },
+    {
+      "type": "unzip",
+      "title": "Prepare your game",
+      "src": "package.zip",
+      "dest": "package"
+    },
+    {
+      "type": "pack_nsp",
+      "title": "Build the NSP",
+      "exefs": {
+        "main": "loader/main",
+        "npdm": "loader/main.npdm"
+      },
+      "romfs": [
+        {
+          "from": "package/shank1-nx/shank1.nro",
+          "to": "shank1.nro"
+        },
+        {
+          "from": "package/shank1-nx/game_root.nxpack",
+          "to": "game_root.nxpack"
+        },
+        {
+          "from": "package/shank1-nx/game_root.nxidx",
+          "to": "game_root.nxidx"
+        }
+      ]
+    },
+    {
+      "type": "copy",
+      "title": "Prepare SD card files",
+      "files": [
+        {
+          "from": "package/shank1-nx/deko3d_glsl.bin",
+          "to": "{out}/sdcard/switch/shank1-nx/deko3d_glsl.bin"
+        },
+        {
+          "from": "package/shank1-nx/LICENSES.txt",
+          "to": "{out}/sdcard/switch/shank1-nx/LICENSES.txt"
+        }
+      ]
+    }
+  ],
+  "icon_url": "https://raw.githubusercontent.com/zhtipu/nx-porting-kit-catalog/main/ports/shank1/icon.jpg"
+}

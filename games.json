@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "games": [
+    {
+      "id": "shank1",
+      "manifest_url": "https://raw.githubusercontent.com/zhtipu/nx-porting-kit-catalog/main/ports/shank1/port.json"
+    },
+    {
+      "id": "shank2",
+      "manifest_url": "https://raw.githubusercontent.com/zhtipu/nx-porting-kit-catalog/main/ports/shank2/port.json"
+    },
+    {
+      "id": "bourne",
+      "manifest_url": "https://raw.githubusercontent.com/zhtipu/nx-porting-kit-catalog/main/ports/bourne/port.json"
+    }
+  ]
+}
