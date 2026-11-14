@@ -3,7 +3,7 @@
   "id": "shank2",
   "name": "Shank 2",
   "tagline": "Xbox Live Arcade  ·  Native Switch port",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "status": "stable",
   "order": 20,
   "requires_app": "1.0.0",
@@ -22,13 +22,12 @@
     "title": "Shank 2",
     "title_id": "0177110EA0DC0000",
     "publisher": "github.com/zhtipu",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "notes": [
-    "Needs about 7 GB of free space while it works.",
-    "Copy the finished switch folder to your SD card."
+    "Needs about 7 GB of free space while it works."
   ],
-  "outputs_help": "An NSP to install on your Switch, and a switch folder to copy to your SD card.",
+  "outputs_help": "One NSP, ready to install on your Switch.",
   "steps": [
     {
       "type": "fetch",
@@ -44,7 +43,8 @@
       "source": "release",
       "repo": "zhtipu/shank2-nx",
       "asset": "shank2.nro",
-      "dest": "installer/release/shank2.nro"
+      "dest": "installer/release/shank2.nro",
+      "tag": "v1.0.1"
     },
     {
       "type": "fetch",
@@ -94,20 +94,14 @@
         {
           "from": "package/shank2-nx/game_root.nxidx",
           "to": "game_root.nxidx"
-        }
-      ]
-    },
-    {
-      "type": "copy",
-      "title": "Prepare SD card files",
-      "files": [
+        },
         {
           "from": "package/shank2-nx/deko3d_glsl.bin",
-          "to": "{out}/sdcard/switch/shank2-nx/deko3d_glsl.bin"
+          "to": "deko3d_glsl.bin"
         },
         {
           "from": "package/shank2-nx/LICENSES.txt",
-          "to": "{out}/sdcard/switch/shank2-nx/LICENSES.txt"
+          "to": "LICENSES.txt"
         }
       ]
     }
